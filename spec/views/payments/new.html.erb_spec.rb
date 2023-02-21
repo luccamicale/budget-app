@@ -3,11 +3,10 @@ require 'rails_helper'
 RSpec.describe 'payments/new', type: :view do
   before(:each) do
     assign(:payment, Payment.new(
-                       author_id: 'MyString',
                        name: 'MyString',
                        amount: 1.5,
                        user: nil,
-                       group: nil
+                       category: nil
                      ))
   end
 
@@ -15,7 +14,6 @@ RSpec.describe 'payments/new', type: :view do
     render
 
     assert_select 'form[action=?][method=?]', payments_path, 'post' do
-      assert_select 'input[name=?]', 'payment[author_id]'
 
       assert_select 'input[name=?]', 'payment[name]'
 
@@ -23,7 +21,7 @@ RSpec.describe 'payments/new', type: :view do
 
       assert_select 'input[name=?]', 'payment[user_id]'
 
-      assert_select 'input[name=?]', 'payment[group_id]'
+      assert_select 'input[name=?]', 'payment[category_id]'
     end
   end
 end

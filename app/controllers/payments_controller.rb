@@ -64,6 +64,6 @@ class PaymentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def payment_params
-    params.require(:payment).permit(:author_id, :name, :amount, :user_id, :group_id)
+    params.require(:payment).permit(:name, :amount, :user_id, :category_id)
   end
 end
