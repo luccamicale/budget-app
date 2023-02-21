@@ -7,9 +7,10 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     else
-      can :manage, Group
+      can :read, Group
       can :read, Payment
       can :create, Payment
+      can :create, Group
     end
 
     # Define abilities for the user here. For example:
